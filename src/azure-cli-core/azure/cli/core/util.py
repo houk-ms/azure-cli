@@ -14,6 +14,7 @@ import platform
 import ssl
 import re
 import logging
+from enum import Enum
 
 import six
 from six.moves.urllib.request import urlopen  # pylint: disable=import-error
@@ -28,8 +29,14 @@ COMPONENT_PREFIX = 'azure-cli-'
 SSLERROR_TEMPLATE = ('Certificate verification failed. This typically happens when using Azure CLI behind a proxy '
                      'that intercepts traffic with a self-signed certificate. '
                      # pylint: disable=line-too-long
-                     'Please add this certificate to the trusted CA bundle: https://github.com/Azure/azure-cli/blob/dev/doc/use_cli_effectively.md#work-behind-a-proxy. '
-                     'Error detail: {}')
+                     'Please add this certificate to the trusted CA bundle: https://github.com/Azure/azure-cli/blob/dev/doc/use_cli_effectively.md#work-behind-a-proxy. ')
+
+EXTENSION_REFERENCE = ("If the command is from an extension, "
+                       "please make sure the corresponding extension is installed. "
+                       "To learn more about extensions, please visit 'https://docs.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview'")
+
+QUERY_REFERENCE = ('To learn more about --query, please visit: '
+                   'https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest')
 
 _PROXYID_RE = re.compile(
     '(?i)/subscriptions/(?P<subscription>[^/]*)(/resourceGroups/(?P<resource_group>[^/]*))?'
@@ -51,6 +58,103 @@ _VERSION_CHECK_TIME = 'check_time'
 _VERSION_UPDATE_TIME = 'update_time'
 
 
+class AzureCLIErrorType(Enum):
+    """ AzureCLI error types """
+
+    # userfaults
+    CommandNotFoundError = 'CommandNotFoundError'
+    ArgumentParseError = 'ArgumentParseError'
+    ValidationError = 'ValidationError'
+    ManualInterrupt = 'ManualInterrupt'
+    # service side error
+    ServiceError = 'ServiceError'
+    # client side error
+    ClientError = 'ClientError'
+    # unexpected error
+    UnexpectedError = 'UnexpectedError'
+
+
+class AzureCLIError(CLIError):
+    """ AzureCLI error definition """
+
+    def __init__(self, error_type, error_msg, raw_exception=None, command=None):
+        """
+        :param error_type: The name of the AzureCLI error type.
+        :type error_type: azure.cli.core.util.AzureCLIErrorType
+        :param error_msg: The error message detail.
+        :type error_msg: str
+        :param raw_exception: The raw exception.
+        :type raw_exception: Exception
+        :param command: The command which brings the error.
+        :type command: str
+        :param usages: The correct usages of command.
+        :type usages: list
+        :param recommendations: The recommendations to resolve the error.
+        :type recommendations: list
+        """
+        self.error_type = error_type
+        self.error_msg = error_msg
+        self.raw_exception = raw_exception
+        self.command = command
+        self.usages = []
+        self.recommendations = []
+        super().__init__(error_msg)
+
+    def set_usage(self, usage):
+        self.usages.append(usage)
+
+    def set_recommendation(self, recommendation):
+        self.recommendations.append(recommendation)
+
+    def set_raw_exception(self, raw_exception):
+        self.raw_exception = raw_exception
+
+    def print_error(self):
+        # Need to provide command usage for users
+        if self.command and self.error_type in [AzureCLIErrorType.CommandNotFoundError,
+                                                AzureCLIErrorType.ArgumentParseError]:
+            self.set_usage(("Run '{command} --help' to explore all the supported commands and arguments in '{command}'").format(command=self.command))
+
+        # Need to provide extension reference for users
+        if self.error_type in [AzureCLIErrorType.CommandNotFoundError]:
+            self.set_recommendation(EXTENSION_REFERENCE)
+
+        # Print the error outputs for users
+        from azure.cli.core.azlogging import CommandLoggerContext
+        with CommandLoggerContext(logger):
+            logger.error('%s: %s', self.error_type.value, self.error_msg)
+            if self.raw_exception:
+                logger.exception(self.raw_exception)
+            if self.usages:
+                print('\nUsage:', file=sys.stderr)
+                for usage in self.usages:
+                    print('\t- {}'.format(usage), file=sys.stderr)
+            if self.recommendations:
+                print('\nRecommendation:', file=sys.stderr)
+                for recommendation in self.recommendations:
+                    print('\t- {}'.format(recommendation), file=sys.stderr)
+                print('\n', file=sys.stderr)
+
+    def send_telemetry(self):
+        import azure.cli.core.telemetry as telemetry
+        telemetry.set_error_type(self.error_type.value)
+
+        # For userfaults
+        if self.error_type in [AzureCLIErrorType.CommandNotFoundError,
+                               AzureCLIErrorType.ArgumentParseError,
+                               AzureCLIErrorType.ValidationError,
+                               AzureCLIErrorType.ManualInterrupt]:
+            telemetry.set_user_fault(self.error_msg)
+
+        # For service side error, client side error, unexpected error
+        else:
+            telemetry.set_failure(self.error_msg)
+
+        # For unexpected error
+        if self.raw_exception:
+            telemetry.set_exception(self.raw_exception, '')
+
+
 def handle_exception(ex):  # pylint: disable=too-many-return-statements
     # For error code, follow guidelines at https://docs.python.org/2/library/sys.html#sys.exit,
     from jmespath.exceptions import JMESPathTypeError
@@ -61,34 +165,32 @@ def handle_exception(ex):  # pylint: disable=too-many-return-statements
     from azure.core.exceptions import AzureError
 
     with CommandLoggerContext(logger):
-        if isinstance(ex, JMESPathTypeError):
-            logger.error("\nInvalid jmespath query supplied for `--query`:\n%s", ex)
-            logger.error("To learn more about --query, please visit: "
-                         "https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest")
-            return 1
-        if isinstance(ex, (CLIError, CloudError, AzureException, AzureError)):
-            logger.error(ex.args[0])
-            try:
-                for detail in ex.args[0].error.details:
-                    logger.error(detail)
-            except (AttributeError, TypeError):
-                pass
-            except:  # pylint: disable=bare-except
-                pass
-            return ex.args[1] if len(ex.args) >= 2 else 1
-        if isinstance(ex, ValidationError):
-            logger.error('validation error: %s', ex)
-            return 1
-        if isinstance(ex, ClientRequestError):
-            msg = str(ex)
-            if 'SSLError' in msg:
-                logger.error("request failed: %s", SSLERROR_TEMPLATE.format(msg))
-            else:
-                logger.error("request failed: %s", ex)
-            return 1
-        if isinstance(ex, KeyboardInterrupt):
-            return 1
-        if isinstance(ex, HttpOperationError):
+        error_msg = getattr(ex, 'message', str(ex))
+
+        if isinstance(ex, AzureCLIError):
+            az_error = ex
+
+        elif isinstance(ex, JMESPathTypeError):
+            error_msg = "Invalid jmespath query supplied for `--query`: {}".format(error_msg)
+            az_error = AzureCLIError(AzureCLIErrorType.ArgumentParseError, error_msg)
+            az_error.set_recommendation(QUERY_REFERENCE)
+
+        # Need to confirm, whether these errors can be regarded as ValidationError
+        elif isinstance(ex, (ValidationError, CLIError, CloudError, AzureError)):
+            az_error = AzureCLIError(AzureCLIErrorType.ValidationError, error_msg)
+
+        # Need to confirm
+        elif isinstance(ex, AzureException):
+            az_error = AzureCLIError(AzureCLIErrorType.ServiceError, error_msg)
+
+        # Need to confirm
+        elif isinstance(ex, ClientRequestError):
+            az_error = AzureCLIError(AzureCLIErrorType.ClientError, error_msg)
+            if 'SSLError' in error_msg:
+                az_error.set_recommendation(SSLERROR_TEMPLATE)
+
+        # Need to confirm
+        elif isinstance(ex, HttpOperationError):
             try:
                 response_dict = json.loads(ex.response.text)
                 error = response_dict['error']
@@ -98,17 +200,27 @@ def handle_exception(ex):  # pylint: disable=too-many-return-statements
                 if isinstance(error, dict):
                     code = "{} - ".format(error.get('code', 'Unknown Code'))
                     message = error.get('message', ex)
-                    logger.error("%s%s", code, message)
+                    error_msg = "code: {}, {}".format(code, message)
                 else:
-                    logger.error(error)
+                    error_msg = error
 
             except (ValueError, KeyError):
-                logger.error(ex)
-            return 1
+                pass
 
-        logger.error("The command failed with an unexpected error. Here is the traceback:\n")
-        logger.exception(ex)
-        logger.warning("\nTo open an issue, please run: 'az feedback'")
+            az_error = AzureCLIError(AzureCLIErrorType.ServiceError, error_msg)
+
+        elif isinstance(ex, KeyboardInterrupt):
+            error_msg = 'Keyboard interrupt is captured.'
+            az_error = AzureCLIError(AzureCLIErrorType.ManualInterrupt, error_msg)
+
+        else:
+            error_msg = "The command failed with an unexpected error. Here is the traceback:"
+            az_error = AzureCLIError(AzureCLIErrorType.UnexpectedError, error_msg)
+            az_error.set_raw_exception(ex)
+            az_error.set_recommendation("To open an issue, please run: 'az feedback'")
+
+        az_error.print_error()
+        az_error.send_telemetry()
 
         return 1
 

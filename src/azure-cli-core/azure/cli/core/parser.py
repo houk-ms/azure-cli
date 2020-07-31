@@ -12,11 +12,12 @@ import argparse
 import argcomplete
 
 import azure.cli.core.telemetry as telemetry
-from azure.cli.core.azlogging import CommandLoggerContext
 from azure.cli.core.extension import get_extension
 from azure.cli.core.commands import ExtensionCommandSource
 from azure.cli.core.commands import AzCliCommandInvoker
 from azure.cli.core.commands.events import EVENT_INVOKER_ON_TAB_COMPLETION
+from azure.cli.core.util import AzureCLIErrorType
+from azure.cli.core.util import AzureCLIError
 
 from knack.log import get_logger
 from knack.parser import CLICommandParser
@@ -143,17 +144,19 @@ class AzCliCommandParser(CLICommandParser):
                 _parser=command_parser)
 
     def validation_error(self, message):
-        telemetry.set_user_fault('validation error: {}'.format(message))
-        return super(AzCliCommandParser, self).error(message)
+        az_error = AzureCLIError(AzureCLIErrorType.ValidationError, message, command=self.prog)
+        az_error.print_error()
+        az_error.send_telemetry()
+        self.exit(2)
 
     def error(self, message):
-        telemetry.set_user_fault('parse error: {}'.format(message))
-        args = {'prog': self.prog, 'message': message}
-        with CommandLoggerContext(logger):
-            logger.error('%(prog)s: error: %(message)s', args)
-        self.print_usage(sys.stderr)
+        az_error = AzureCLIError(AzureCLIErrorType.ArgumentParseError, message, command=self.prog)
+
         # Manual recommendations
-        self._set_manual_recommendations(args['message'])
+        self._set_manual_recommendations(az_error)
+        az_error.print_error()
+        az_error.send_telemetry()
+
         # AI recommendations
         failure_recovery_recommendations = self._get_failure_recovery_recommendations()
         self._suggestion_msg.extend(failure_recovery_recommendations)
@@ -182,13 +185,11 @@ class AzCliCommandParser(CLICommandParser):
         argcomplete.autocomplete(self, validator=lambda c, p: c.lower().startswith(p.lower()),
                                  default_completer=lambda _: ())
 
-    def _set_manual_recommendations(self, error_msg):
-        recommendations = []
+    def _set_manual_recommendations(self, az_error):  # pylint: disable=no-self-use
         # recommendation for --query value error
-        if '--query' in error_msg:
-            recommendations.append('To learn more about [--query JMESPATH] usage in AzureCLI, '
-                                   'visit https://aka.ms/CLIQuery')
-        self._suggestion_msg.extend(recommendations)
+        if '--query' in az_error.error_msg:
+            from azure.cli.core.util import QUERY_REFERENCE
+            az_error.set_recommendation(QUERY_REFERENCE)
 
     def _get_failure_recovery_arguments(self, action=None):
         # Strip the leading "az " and any extraneous whitespace.
@@ -286,29 +287,27 @@ class AzCliCommandParser(CLICommandParser):
         if action.choices is not None and value not in action.choices:
             if not self.command_source:
                 # parser has no `command_source`, value is part of command itself
-                extensions_link = 'https://docs.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview'
-                error_msg = ("{prog}: '{value}' is not in the '{prog}' command group. See '{prog} --help'. "
-                             "If the command is from an extension, "
-                             "please make sure the corresponding extension is installed. "
-                             "To learn more about extensions, please visit "
-                             "{extensions_link}").format(prog=self.prog, value=value, extensions_link=extensions_link)
+                error_msg = ("'{value}' is not in the '{prog}' command group").format(prog=self.prog, value=value)
+                az_error = AzureCLIError(AzureCLIErrorType.CommandNotFoundError, error_msg, command=self.prog)
+
             else:
                 # `command_source` indicates command values have been parsed, value is an argument
                 parameter = action.option_strings[0] if action.option_strings else action.dest
-                error_msg = "{prog}: '{value}' is not a valid value for '{param}'. See '{prog} --help'.".format(
-                    prog=self.prog, value=value, param=parameter)
-            telemetry.set_user_fault(error_msg)
-            with CommandLoggerContext(logger):
-                logger.error(error_msg)
+                error_msg = "'{value}' is not a valid value for '{param}'".format(value=value, param=parameter)
+                az_error = AzureCLIError(AzureCLIErrorType.ValidationError, error_msg, command=self.prog)
+
             candidates = difflib.get_close_matches(value, action.choices, cutoff=0.7)
             if candidates:
                 print_args = {
                     's': 's' if len(candidates) > 1 else '',
                     'verb': 'are' if len(candidates) > 1 else 'is',
-                    'value': value
+                    'value': value,
+                    'candidates': '\n'.join(['\t\t' + candidate for candidate in candidates])
                 }
-                self._suggestion_msg.append("\nThe most similar choice{s} to '{value}' {verb}:".format(**print_args))
-                self._suggestion_msg.append('\n'.join(['\t' + candidate for candidate in candidates]))
+                az_error.set_usage("The most similar choice{s} to '{value}' {verb}:\n {candidates}".format(**print_args))  # pylint: disable=line-too-long
+
+            az_error.print_error()
+            az_error.send_telemetry()
 
             failure_recovery_recommendations = self._get_failure_recovery_recommendations(action)
             self._suggestion_msg.extend(failure_recovery_recommendations)
