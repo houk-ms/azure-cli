@@ -133,7 +133,6 @@ class AzureCLIError(CLIError):
                 print('\nRecommendation:', file=sys.stderr)
                 for recommendation in self.recommendations:
                     print('\t- {}'.format(recommendation), file=sys.stderr)
-                print('\n', file=sys.stderr)
 
     def send_telemetry(self):
         import azure.cli.core.telemetry as telemetry
