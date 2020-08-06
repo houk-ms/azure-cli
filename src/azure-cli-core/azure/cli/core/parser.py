@@ -302,9 +302,9 @@ class AzCliCommandParser(CLICommandParser):
                     's': 's' if len(candidates) > 1 else '',
                     'verb': 'are' if len(candidates) > 1 else 'is',
                     'value': value,
-                    'candidates': '\n'.join(['\t\t' + candidate for candidate in candidates])
+                    'candidates': ', '.join(["'{}'".format(candidate) for candidate in candidates])
                 }
-                az_error.set_usage("The most similar choice{s} to '{value}' {verb}:\n {candidates}".format(**print_args))  # pylint: disable=line-too-long
+                az_error.set_recommendation("The most similar choice{s} to '{value}' {verb}: {candidates}".format(**print_args))  # pylint: disable=line-too-long
 
             az_error.print_error()
             az_error.send_telemetry()
