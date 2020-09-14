@@ -392,8 +392,8 @@ class NetworkPublicIpPrefix(ScenarioTest):
         # Check the creation of public IP prefix with IPv6 address option
         # Note: prefix length for IPv6 is minimal 124 and maximal 127 respectively
         self.cmd('network public-ip prefix create -g {rg} -n {prefix_name_ipv6} --length 127 --version IPv6', checks=[
-            self.check('publicIpAddressVersion', 'IPv6')
-        ])
+            self.check('publicIpAddressVersion', '
+        
 
         # Check with unsupported IP address version: IPv5
         with self.assertRaisesRegexp(SystemExit, '2'):
