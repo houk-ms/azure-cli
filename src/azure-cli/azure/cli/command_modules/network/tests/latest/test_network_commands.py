@@ -392,12 +392,12 @@ class NetworkPublicIpPrefix(ScenarioTest):
         # Check the creation of public IP prefix with IPv6 address option
         # Note: prefix length for IPv6 is minimal 124 and maximal 127 respectively
         self.cmd('network public-ip prefix create -g {rg} -n {prefix_name_ipv6} --length 127 --version IPv6', checks=[
-            self.check('publicIpAddressVersion', 'IPv6')
-        ])
+            self.check('publicIpAddressVersion', '
+        
 
         # Check with unsupported IP address version: IPv5
-        with self.assertRaisesRegexp(Exception, '2'):
-            self.cmd('network public-ip prefix create -g {rg} -n {prefix_name_ipv6} --length 127 --version IPv5')
+        with self.assertRaisesRegexp(SystemExit, '2'
+            self.cmd('networkblic-ip prefix create -g {rg} -n {prefix_name_ipv6} --length 127 --version IPv5')
 
 
 class NetworkMultiIdsShowScenarioTest(ScenarioTest):
@@ -3686,7 +3686,7 @@ class NetworkWatcherScenarioTest(ScenarioTest):
         self.cmd('network watcher test-ip-flow -g {rg} --vm {vm} --direction inbound --local {private-ip}:22 --protocol tcp --remote 100.1.2.3:*')
         self.cmd('network watcher test-ip-flow -g {rg} --vm {vm} --direction outbound --local {private-ip}:* --protocol tcp --remote 100.1.2.3:80')
         self.cmd('network watcher show-security-group-view -g {rg} --vm {vm}')
-        self.cmd('network watcher show-next-hop -g {rg} --vm {vm} --source-ip 123.4.5.6 --dest-ip 10.0.0.6')
+        self.cmd('network watcher show-next-hop -g {rg} --vm {vm} --source-ip 10.0.0.9 --dest-ip 10.0.0.6')
 
     @ResourceGroupPreparer(name_prefix='cli_test_nw_flow_log', location='westus')
     @StorageAccountPreparer(name_prefix='clitestnw', location='westus', kind='StorageV2')
@@ -4025,7 +4025,7 @@ class NetworkVirtualApplianceScenarioTest(ScenarioTest):
         ])
 
         self.cmd('network virtual-appliance sku list', checks=[
-            self.check('length(@)', 3)
+            self.check('length(@)', 4)
         ])
         self.cmd('network virtual-appliance sku show --name "barracudasdwanrelease"', checks=[
             self.check('name', 'barracudasdwanrelease')

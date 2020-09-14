@@ -17,8 +17,8 @@ interactions:
       ParameterSetName:
       - -n -g -l
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
-        azure-mgmt-batch/7.0.0 Azure-SDK-For-Python AZURECLI/2.3.1
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-batch/9.0.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: PUT
@@ -32,11 +32,11 @@ interactions:
       content-length:
       - '0'
       date:
-      - Fri, 03 Apr 2020 17:34:21 GMT
+      - Mon, 14 Sep 2020 13:37:40 GMT
       expires:
       - '-1'
       location:
-      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002/operationResults/8b296c07-8898-4035-a07a-42b71fd50077?api-version=2020-05-01
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002/operationResults/bdf56e40-9af0-4854-8e51-0c2abf76da25?api-version=2020-05-01
       pragma:
       - no-cache
       server:
@@ -46,7 +46,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1197'
     status:
       code: 202
       message: Accepted
@@ -64,28 +64,28 @@ interactions:
       ParameterSetName:
       - -n -g -l
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
-        azure-mgmt-batch/7.0.0 Azure-SDK-For-Python AZURECLI/2.3.1
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-batch/9.0.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
-    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002/operationResults/8b296c07-8898-4035-a07a-42b71fd50077?api-version=2020-05-01
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002/operationResults/bdf56e40-9af0-4854-8e51-0c2abf76da25?api-version=2020-05-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002","name":"clibatch000002","type":"Microsoft.Batch/batchAccounts","location":"canadaeast","properties":{"accountEndpoint":"clibatch000002.canadaeast.batch.azure.com","provisioningState":"Succeeded","dedicatedCoreQuota":0,"dedicatedCoreQuotaPerVMFamily":[{"name":"standardAv2Family","coreQuota":0},{"name":"standardDv2Family","coreQuota":0},{"name":"standardDv3Family","coreQuota":0},{"name":"standardEv3Family","coreQuota":0},{"name":"standardDSv2Family","coreQuota":0},{"name":"standardDSv3Family","coreQuota":0},{"name":"standardESv3Family","coreQuota":0},{"name":"standardFFamily","coreQuota":0},{"name":"standardFSFamily","coreQuota":0},{"name":"standardA0_A7Family","coreQuota":0},{"name":"standardA8_A11Family","coreQuota":0},{"name":"standardDFamily","coreQuota":0},{"name":"standardGFamily","coreQuota":0},{"name":"basicAFamily","coreQuota":0},{"name":"standardNVFamily","coreQuota":0},{"name":"standardNVPromoFamily","coreQuota":0},{"name":"standardNCFamily","coreQuota":0},{"name":"standardNCPromoFamily","coreQuota":0},{"name":"standardHFamily","coreQuota":0},{"name":"standardHPromoFamily","coreQuota":0},{"name":"standardMSFamily","coreQuota":0},{"name":"standardDSFamily","coreQuota":0},{"name":"standardGSFamily","coreQuota":0},{"name":"standardLSFamily","coreQuota":0},{"name":"standardNCSv2Family","coreQuota":0},{"name":"standardNDSFamily","coreQuota":0},{"name":"standardNCSv3Family","coreQuota":0},{"name":"standardFSv2Family","coreQuota":0},{"name":"standardHBSFamily","coreQuota":0},{"name":"standardHCSFamily","coreQuota":0},{"name":"standardNVSv3Family","coreQuota":0},{"name":"standardHBrsv2Family","coreQuota":0}],"dedicatedCoreQuotaPerVMFamilyEnforced":false,"lowPriorityCoreQuota":0,"poolQuota":100,"activeJobAndJobScheduleQuota":300,"poolAllocationMode":"BatchService"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002","name":"clibatch000002","type":"Microsoft.Batch/batchAccounts","location":"canadaeast","properties":{"accountEndpoint":"clibatch000002.canadaeast.batch.azure.com","provisioningState":"Succeeded","dedicatedCoreQuota":700,"dedicatedCoreQuotaPerVMFamily":[{"name":"standardAv2Family","coreQuota":100},{"name":"standardDv2Family","coreQuota":100},{"name":"standardDv3Family","coreQuota":100},{"name":"standardEv3Family","coreQuota":50},{"name":"standardDSv2Family","coreQuota":100},{"name":"standardDSv3Family","coreQuota":100},{"name":"standardESv3Family","coreQuota":50},{"name":"standardFFamily","coreQuota":50},{"name":"standardFSFamily","coreQuota":50},{"name":"standardA0_A7Family","coreQuota":0},{"name":"standardA8_A11Family","coreQuota":0},{"name":"standardDFamily","coreQuota":0},{"name":"standardGFamily","coreQuota":0},{"name":"basicAFamily","coreQuota":0},{"name":"standardNVFamily","coreQuota":0},{"name":"standardNVPromoFamily","coreQuota":0},{"name":"standardNCFamily","coreQuota":0},{"name":"standardNCPromoFamily","coreQuota":0},{"name":"standardHFamily","coreQuota":0},{"name":"standardHPromoFamily","coreQuota":0},{"name":"standardMSFamily","coreQuota":0},{"name":"standardDSFamily","coreQuota":0},{"name":"standardGSFamily","coreQuota":0},{"name":"standardLSFamily","coreQuota":0},{"name":"standardLSv2Family","coreQuota":0},{"name":"standardNCSv2Family","coreQuota":0},{"name":"standardNDSFamily","coreQuota":0},{"name":"standardNCSv3Family","coreQuota":0},{"name":"standardFSv2Family","coreQuota":0},{"name":"standardHBSFamily","coreQuota":0},{"name":"standardHCSFamily","coreQuota":0},{"name":"standardNVSv3Family","coreQuota":0},{"name":"standardHBrsv2Family","coreQuota":0},{"name":"standardDAv4Family","coreQuota":0},{"name":"standardDASv4Family","coreQuota":0},{"name":"standardEAv4Family","coreQuota":0},{"name":"standardEASv4Family","coreQuota":0}],"dedicatedCoreQuotaPerVMFamilyEnforced":false,"lowPriorityCoreQuota":500,"poolQuota":100,"activeJobAndJobScheduleQuota":300,"poolAllocationMode":"BatchService","publicNetworkAccess":"Enabled","encryption":{"keySource":"Microsoft.Batch"}},"identity":{"type":"None"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '2032'
+      - '2376'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Fri, 03 Apr 2020 17:34:36 GMT
+      - Mon, 14 Sep 2020 13:37:57 GMT
       etag:
-      - '"0x8D7D7F547F58E51"'
+      - '"0x8D858B364B5F0F9"'
       expires:
       - '-1'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:37 GMT
+      - Mon, 14 Sep 2020 13:37:58 GMT
       pragma:
       - no-cache
       server:
@@ -117,15 +117,15 @@ interactions:
       ParameterSetName:
       - -n -g --query -o
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
-        azure-mgmt-batch/7.0.0 Azure-SDK-For-Python AZURECLI/2.3.1
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-batch/9.0.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: POST
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002/listKeys?api-version=2020-05-01
   response:
     body:
-      string: '{"accountName":"clibatch000002","primary":"4qNlZe1o8euBO9U4rmns7MJcafiVKpPSjgmPLkuQQLl8y0gu0GOTLBr4+iJ3S9Dre4yUrOWnwU5OPh9ECpgFgQ==","secondary":"QIMpI5j7tHz4EB56jRw6pBwWw3SU6xVEgsMDrKt2CkRmGCz0q0sDADIe6tfJMZpyDsqvpkUAx4uCxitYaNwmaQ=="}'
+      string: '{"accountName":"clibatch000002","primary":"slPk/f/UjHnMq2DtJEG7u/cGhyhqs/jeFnDYMd01H03QupRk1jpn41YuERnBSFKDSndm/b8xbmnd/CaWNZ4Zsw==","secondary":"tOJwh82A7mFZN+4t5M7UOGDTT+a/NgSFtnxqoFsevDI+HSsWr/DAKMXvNxe3DLQsvwUp8aYmvC6YYZWzs0JG1Q=="}'
     headers:
       cache-control:
       - no-cache
@@ -134,7 +134,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Fri, 03 Apr 2020 17:34:37 GMT
+      - Mon, 14 Sep 2020 13:38:01 GMT
       expires:
       - '-1'
       pragma:
@@ -150,7 +150,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1198'
     status:
       code: 200
       message: OK
@@ -168,30 +168,30 @@ interactions:
       ParameterSetName:
       - -n -g
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
-        azure-mgmt-batch/7.0.0 Azure-SDK-For-Python AZURECLI/2.3.1
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-batch/9.0.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002?api-version=2020-05-01
   response:
     body:
-      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002","name":"clibatch000002","type":"Microsoft.Batch/batchAccounts","location":"canadaeast","properties":{"accountEndpoint":"clibatch000002.canadaeast.batch.azure.com","provisioningState":"Succeeded","dedicatedCoreQuota":0,"dedicatedCoreQuotaPerVMFamily":[{"name":"standardAv2Family","coreQuota":0},{"name":"standardDv2Family","coreQuota":0},{"name":"standardDv3Family","coreQuota":0},{"name":"standardEv3Family","coreQuota":0},{"name":"standardDSv2Family","coreQuota":0},{"name":"standardDSv3Family","coreQuota":0},{"name":"standardESv3Family","coreQuota":0},{"name":"standardFFamily","coreQuota":0},{"name":"standardFSFamily","coreQuota":0},{"name":"standardA0_A7Family","coreQuota":0},{"name":"standardA8_A11Family","coreQuota":0},{"name":"standardDFamily","coreQuota":0},{"name":"standardGFamily","coreQuota":0},{"name":"basicAFamily","coreQuota":0},{"name":"standardNVFamily","coreQuota":0},{"name":"standardNVPromoFamily","coreQuota":0},{"name":"standardNCFamily","coreQuota":0},{"name":"standardNCPromoFamily","coreQuota":0},{"name":"standardHFamily","coreQuota":0},{"name":"standardHPromoFamily","coreQuota":0},{"name":"standardMSFamily","coreQuota":0},{"name":"standardDSFamily","coreQuota":0},{"name":"standardGSFamily","coreQuota":0},{"name":"standardLSFamily","coreQuota":0},{"name":"standardNCSv2Family","coreQuota":0},{"name":"standardNDSFamily","coreQuota":0},{"name":"standardNCSv3Family","coreQuota":0},{"name":"standardFSv2Family","coreQuota":0},{"name":"standardHBSFamily","coreQuota":0},{"name":"standardHCSFamily","coreQuota":0},{"name":"standardNVSv3Family","coreQuota":0},{"name":"standardHBrsv2Family","coreQuota":0}],"dedicatedCoreQuotaPerVMFamilyEnforced":false,"lowPriorityCoreQuota":0,"poolQuota":100,"activeJobAndJobScheduleQuota":300,"poolAllocationMode":"BatchService"}}'
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/clitest.rg000001/providers/Microsoft.Batch/batchAccounts/clibatch000002","name":"clibatch000002","type":"Microsoft.Batch/batchAccounts","location":"canadaeast","properties":{"accountEndpoint":"clibatch000002.canadaeast.batch.azure.com","provisioningState":"Succeeded","dedicatedCoreQuota":700,"dedicatedCoreQuotaPerVMFamily":[{"name":"standardAv2Family","coreQuota":100},{"name":"standardDv2Family","coreQuota":100},{"name":"standardDv3Family","coreQuota":100},{"name":"standardEv3Family","coreQuota":50},{"name":"standardDSv2Family","coreQuota":100},{"name":"standardDSv3Family","coreQuota":100},{"name":"standardESv3Family","coreQuota":50},{"name":"standardFFamily","coreQuota":50},{"name":"standardFSFamily","coreQuota":50},{"name":"standardA0_A7Family","coreQuota":0},{"name":"standardA8_A11Family","coreQuota":0},{"name":"standardDFamily","coreQuota":0},{"name":"standardGFamily","coreQuota":0},{"name":"basicAFamily","coreQuota":0},{"name":"standardNVFamily","coreQuota":0},{"name":"standardNVPromoFamily","coreQuota":0},{"name":"standardNCFamily","coreQuota":0},{"name":"standardNCPromoFamily","coreQuota":0},{"name":"standardHFamily","coreQuota":0},{"name":"standardHPromoFamily","coreQuota":0},{"name":"standardMSFamily","coreQuota":0},{"name":"standardDSFamily","coreQuota":0},{"name":"standardGSFamily","coreQuota":0},{"name":"standardLSFamily","coreQuota":0},{"name":"standardLSv2Family","coreQuota":0},{"name":"standardNCSv2Family","coreQuota":0},{"name":"standardNDSFamily","coreQuota":0},{"name":"standardNCSv3Family","coreQuota":0},{"name":"standardFSv2Family","coreQuota":0},{"name":"standardHBSFamily","coreQuota":0},{"name":"standardHCSFamily","coreQuota":0},{"name":"standardNVSv3Family","coreQuota":0},{"name":"standardHBrsv2Family","coreQuota":0},{"name":"standardDAv4Family","coreQuota":0},{"name":"standardDASv4Family","coreQuota":0},{"name":"standardEAv4Family","coreQuota":0},{"name":"standardEASv4Family","coreQuota":0}],"dedicatedCoreQuotaPerVMFamilyEnforced":false,"lowPriorityCoreQuota":500,"poolQuota":100,"activeJobAndJobScheduleQuota":300,"poolAllocationMode":"BatchService","publicNetworkAccess":"Enabled","encryption":{"keySource":"Microsoft.Batch"}},"identity":{"type":"None"}}'
     headers:
       cache-control:
       - no-cache
       content-length:
-      - '2032'
+      - '2376'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Fri, 03 Apr 2020 17:34:38 GMT
+      - Mon, 14 Sep 2020 13:38:03 GMT
       etag:
-      - '"0x8D7D7F53E712F28"'
+      - '"0x8D858B35C685837"'
       expires:
       - '-1'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:21 GMT
+      - Mon, 14 Sep 2020 13:37:44 GMT
       pragma:
       - no-cache
       server:
@@ -222,10 +222,12 @@ interactions:
       Content-Type:
       - application/json; odata=minimalmetadata; charset=utf-8
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:04 GMT
       return-client-request-id:
       - 'false'
     method: POST
@@ -235,19 +237,19 @@ interactions:
       string: ''
     headers:
       dataserviceid:
-      - https://clibatch2exocolbhi5udcaa.canadaeast.batch.azure.com/pools/xplatJobForTaskTests
+      - https://clibatch4jobgpiqj2exc24e.canadaeast.batch.azure.com/pools/xplatJobForTaskTests
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:41 GMT
+      - Mon, 14 Sep 2020 13:38:06 GMT
       etag:
-      - '0x8D7D7F54AA3D2EA'
+      - '0x8D858B36937914D'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:41 GMT
+      - Mon, 14 Sep 2020 13:38:06 GMT
       location:
       - https://clibatch000002.canadaeast.batch.azure.com/pools/xplatJobForTaskTests
       request-id:
-      - d8d12b2a-44c8-4dde-bb26-cec7a1e87fd3
+      - 4ee64df7-eebe-4e26-95ea-211840a261a5
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
@@ -276,10 +278,12 @@ interactions:
       Content-Type:
       - application/json; odata=minimalmetadata; charset=utf-8
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:06 GMT
       return-client-request-id:
       - 'false'
     method: POST
@@ -289,19 +293,19 @@ interactions:
       string: ''
     headers:
       dataserviceid:
-      - https://clibatch2exocolbhi5udcaa.canadaeast.batch.azure.com/jobs/job-1
+      - https://clibatch4jobgpiqj2exc24e.canadaeast.batch.azure.com/jobs/job-1
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:42 GMT
+      - Mon, 14 Sep 2020 13:38:08 GMT
       etag:
-      - '0x8D7D7F54B600622'
+      - '0x8D858B36AA8AFCB'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:42 GMT
+      - Mon, 14 Sep 2020 13:38:08 GMT
       location:
       - https://clibatch000002.canadaeast.batch.azure.com/jobs/job-1
       request-id:
-      - 5adc1121-529d-4b2e-b23e-d91027d71e94
+      - 07305cc0-3327-49e2-99bb-a1f0646b0d4e
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
@@ -323,17 +327,19 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:09 GMT
       return-client-request-id:
       - 'false'
     method: GET
     uri: https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1?api-version=2020-03-01.11.0&timeout=30
   response:
     body:
-      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#jobs/@Element\",\"id\":\"cli-test-job-1\",\"url\":\"https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1\",\"eTag\":\"0x8D7D7F54B600622\",\"lastModified\":\"2020-04-03T17:34:42.7758114Z\",\"creationTime\":\"2020-04-03T17:34:42.7401698Z\",\"state\":\"active\",\"stateTransitionTime\":\"2020-04-03T17:34:42.7758114Z\",\"priority\":0,\"usesTaskDependencies\":false,\"constraints\":{\r\n
+      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#jobs/@Element\",\"id\":\"cli-test-job-1\",\"url\":\"https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1\",\"eTag\":\"0x8D858B36AA8AFCB\",\"lastModified\":\"2020-09-14T13:38:08.4755403Z\",\"creationTime\":\"2020-09-14T13:38:08.4185012Z\",\"state\":\"active\",\"stateTransitionTime\":\"2020-09-14T13:38:08.4755403Z\",\"priority\":0,\"usesTaskDependencies\":false,\"constraints\":{\r\n
         \   \"maxWallClockTime\":\"P10675199DT2H48M5.4775807S\",\"maxTaskRetryCount\":5\r\n
         \ },\"jobManagerTask\":{\r\n    \"id\":\"JobManager\",\"commandLine\":\"cmd
         /c set AZ_BATCH_TASK_ID\",\"environmentSettings\":[\r\n      {\r\n        \"name\":\"CLI_TEST_VAR\",\"value\":\"CLI_TEST_VAR_VALUE\"\r\n
@@ -342,7 +348,7 @@ interactions:
         \     }\r\n    },\"runExclusive\":true,\"allowLowPriorityNode\":true,\"killJobOnCompletion\":true\r\n
         \ },\"poolInfo\":{\r\n    \"poolId\":\"xplatJobForTaskTests\"\r\n  },\"metadata\":[\r\n
         \   {\r\n      \"name\":\"test\",\"value\":\"value\"\r\n    }\r\n  ],\"executionInfo\":{\r\n
-        \   \"startTime\":\"2020-04-03T17:34:42.7758114Z\",\"poolId\":\"xplatJobForTaskTests\"\r\n
+        \   \"startTime\":\"2020-09-14T13:38:08.4755403Z\",\"poolId\":\"xplatJobForTaskTests\"\r\n
         \ },\"onAllTasksComplete\":\"noaction\",\"onTaskFailure\":\"noaction\"\r\n}"
     headers:
       content-type:
@@ -350,13 +356,13 @@ interactions:
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:44 GMT
+      - Mon, 14 Sep 2020 13:38:11 GMT
       etag:
-      - '0x8D7D7F54B600622'
+      - '0x8D858B36AA8AFCB'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:42 GMT
+      - Mon, 14 Sep 2020 13:38:08 GMT
       request-id:
-      - a9b7e3ba-4986-4d95-a1dc-aedd15424ef0
+      - a74af12f-8299-42e0-946d-109794a313ca
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
@@ -365,6 +371,54 @@ interactions:
       - chunked
       x-content-type-options:
       - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.22.0
+      X-UserId:
+      - 9df91b0a9a0c41217cfd61cda884c90b75c70bac33d18437354b0bfd6e1b06a2
+    method: GET
+    uri: https://app.aladdin.microsoft.com/api/v1.0/suggestions?query=%7B%22command%22%3A+%22batch+job+set%22%2C+%22parameters%22%3A+%22--account-endpoint%2C--account-key%2C--account-name%2C--job-id%2C--on-all-tasks-complete%22%7D&clientType=AzureCli&context=%7B%22versionNumber%22%3A+%222.11.1%22%2C+%22errorType%22%3A+%22InvalidParameterValue%22%7D
+  response:
+    body:
+      string: "[{\"command\":\"batch job set\",\"parameters\":\"--job-id,--on-all-tasks-complete\",\"placeholders\":\"{job-id}\u2660noaction\",\"score\":3.0}]"
+    headers:
+      api-supported-versions:
+      - '1.0'
+      content-length:
+      - '126'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 14 Sep 2020 13:38:12 GMT
+      server:
+      - Microsoft-IIS/10.0
+      set-cookie:
+      - ARRAffinity=4ce4c33ab28bbb6b04b324c1598b65752a514eaac8ea55fbbfed51c3c1295c29;Path=/;HttpOnly;Domain=app.aladdin.microsoft.com
+      sml-correlationid:
+      - 091bee39-d0d1-4915-9990-00a8184a2ce6
+      strict-transport-security:
+      - max-age=2592000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - ASP.NET
     status:
       code: 200
       message: OK
@@ -383,10 +437,12 @@ interactions:
       Content-Type:
       - application/json; odata=minimalmetadata; charset=utf-8
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:12 GMT
       return-client-request-id:
       - 'false'
     method: PATCH
@@ -396,17 +452,17 @@ interactions:
       string: ''
     headers:
       dataserviceid:
-      - https://clibatch2exocolbhi5udcaa.canadaeast.batch.azure.com/jobs/cli-test-job-1
+      - https://clibatch4jobgpiqj2exc24e.canadaeast.batch.azure.com/jobs/cli-test-job-1
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:46 GMT
+      - Mon, 14 Sep 2020 13:38:14 GMT
       etag:
-      - '0x8D7D7F54D579604'
+      - '0x8D858B36E0EB010'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:46 GMT
+      - Mon, 14 Sep 2020 13:38:14 GMT
       request-id:
-      - cf04bc28-8cc9-44c3-a58b-998d987fee0c
+      - 985f2746-21ce-491b-9e8d-f81d22d95bf3
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
@@ -428,17 +484,19 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:14 GMT
       return-client-request-id:
       - 'false'
     method: GET
     uri: https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1?api-version=2020-03-01.11.0&timeout=30
   response:
     body:
-      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#jobs/@Element\",\"id\":\"cli-test-job-1\",\"url\":\"https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1\",\"eTag\":\"0x8D7D7F54D579604\",\"lastModified\":\"2020-04-03T17:34:46.0759556Z\",\"creationTime\":\"2020-04-03T17:34:42.7401698Z\",\"state\":\"active\",\"stateTransitionTime\":\"2020-04-03T17:34:42.7758114Z\",\"priority\":0,\"usesTaskDependencies\":false,\"constraints\":{\r\n
+      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#jobs/@Element\",\"id\":\"cli-test-job-1\",\"url\":\"https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1\",\"eTag\":\"0x8D858B36E0EB010\",\"lastModified\":\"2020-09-14T13:38:14.1771792Z\",\"creationTime\":\"2020-09-14T13:38:08.4185012Z\",\"state\":\"active\",\"stateTransitionTime\":\"2020-09-14T13:38:08.4755403Z\",\"priority\":0,\"usesTaskDependencies\":false,\"constraints\":{\r\n
         \   \"maxWallClockTime\":\"P1279DT12H30M5S\",\"maxTaskRetryCount\":0\r\n  },\"jobManagerTask\":{\r\n
         \   \"id\":\"JobManager\",\"commandLine\":\"cmd /c set AZ_BATCH_TASK_ID\",\"environmentSettings\":[\r\n
         \     {\r\n        \"name\":\"CLI_TEST_VAR\",\"value\":\"CLI_TEST_VAR_VALUE\"\r\n
@@ -447,7 +505,7 @@ interactions:
         \     }\r\n    },\"runExclusive\":true,\"allowLowPriorityNode\":true,\"killJobOnCompletion\":true\r\n
         \ },\"poolInfo\":{\r\n    \"poolId\":\"xplatJobForTaskTests\"\r\n  },\"metadata\":[\r\n
         \   {\r\n      \"name\":\"test\",\"value\":\"value\"\r\n    }\r\n  ],\"executionInfo\":{\r\n
-        \   \"startTime\":\"2020-04-03T17:34:42.7758114Z\",\"poolId\":\"xplatJobForTaskTests\"\r\n
+        \   \"startTime\":\"2020-09-14T13:38:08.4755403Z\",\"poolId\":\"xplatJobForTaskTests\"\r\n
         \ },\"onAllTasksComplete\":\"terminatejob\",\"onTaskFailure\":\"noaction\"\r\n}"
     headers:
       content-type:
@@ -455,13 +513,13 @@ interactions:
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:47 GMT
+      - Mon, 14 Sep 2020 13:38:16 GMT
       etag:
-      - '0x8D7D7F54D579604'
+      - '0x8D858B36E0EB010'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:46 GMT
+      - Mon, 14 Sep 2020 13:38:14 GMT
       request-id:
-      - 9b5c04ce-c2e6-46e4-8590-cc0e30ad9e21
+      - 69693422-da6e-4503-b1a6-692e6ae365a9
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
@@ -488,42 +546,45 @@ interactions:
       Content-Type:
       - application/json; odata=minimalmetadata; charset=utf-8
       If-Unmodified-Since:
-      - Fri, 03 Apr 2020 10:34:41 GMT
+      - Mon, 14 Sep 2020 21:38:06 GMT
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:16 GMT
       return-client-request-id:
       - 'false'
     method: PUT
     uri: https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1?api-version=2020-03-01.11.0&timeout=30
   response:
     body:
-      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#Microsoft.Azure.Batch.Protocol.Entities.Container.errors/@Element\",\"code\":\"ConditionNotMet\",\"message\":{\r\n
-        \   \"lang\":\"en-US\",\"value\":\"The condition specified using HTTP conditional
-        header(s) is not met.\\nRequestId:b0384fe3-05a8-45a4-9b97-3d806d9c1977\\nTime:2020-04-03T17:34:49.0164143Z\"\r\n
-        \ }\r\n}"
+      string: ''
     headers:
-      content-length:
-      - '386'
-      content-type:
-      - application/json;odata=minimalmetadata
+      dataserviceid:
+      - https://clibatch4jobgpiqj2exc24e.canadaeast.batch.azure.com/jobs/cli-test-job-1
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:49 GMT
+      - Mon, 14 Sep 2020 13:38:18 GMT
+      etag:
+      - '0x8D858B3706E2851'
+      last-modified:
+      - Mon, 14 Sep 2020 13:38:18 GMT
       request-id:
-      - b0384fe3-05a8-45a4-9b97-3d806d9c1977
+      - c3206da8-2694-4f15-a57d-acd786501e81
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
       - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
       x-content-type-options:
       - nosniff
     status:
-      code: 412
-      message: The condition specified using HTTP conditional header(s) is not met.
+      code: 200
+      message: OK
 - request:
     body: '{"poolInfo": {"poolId": "xplatJobForTaskTests"}, "onAllTasksComplete":
       "terminatejob"}'
@@ -539,10 +600,12 @@ interactions:
       Content-Type:
       - application/json; odata=minimalmetadata; charset=utf-8
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:18 GMT
       return-client-request-id:
       - 'false'
     method: PUT
@@ -552,17 +615,17 @@ interactions:
       string: ''
     headers:
       dataserviceid:
-      - https://clibatch2exocolbhi5udcaa.canadaeast.batch.azure.com/jobs/cli-test-job-1
+      - https://clibatch4jobgpiqj2exc24e.canadaeast.batch.azure.com/jobs/cli-test-job-1
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:49 GMT
+      - Mon, 14 Sep 2020 13:38:20 GMT
       etag:
-      - '0x8D7D7F54FA00877'
+      - '0x8D858B371B7F2AA'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:49 GMT
+      - Mon, 14 Sep 2020 13:38:20 GMT
       request-id:
-      - ce193c0e-cb04-4350-945b-ede67a0b31cd
+      - 7bfe1568-2a08-494f-8d9d-85e78bfe3055
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
@@ -584,17 +647,19 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python/3.7.5 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.6.3
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
         azure-batch/9.0.0 Azure-SDK-For-Python
       accept-language:
       - en-US
+      ocp-date:
+      - Mon, 14 Sep 2020 13:38:20 GMT
       return-client-request-id:
       - 'false'
     method: GET
     uri: https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1?api-version=2020-03-01.11.0&timeout=30
   response:
     body:
-      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#jobs/@Element\",\"id\":\"cli-test-job-1\",\"url\":\"https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1\",\"eTag\":\"0x8D7D7F54FA00877\",\"lastModified\":\"2020-04-03T17:34:49.9061879Z\",\"creationTime\":\"2020-04-03T17:34:42.7401698Z\",\"state\":\"active\",\"stateTransitionTime\":\"2020-04-03T17:34:42.7758114Z\",\"priority\":0,\"usesTaskDependencies\":false,\"constraints\":{\r\n
+      string: "{\r\n  \"odata.metadata\":\"https://clibatch000002.canadaeast.batch.azure.com/$metadata#jobs/@Element\",\"id\":\"cli-test-job-1\",\"url\":\"https://clibatch000002.canadaeast.batch.azure.com/jobs/cli-test-job-1\",\"eTag\":\"0x8D858B371B7F2AA\",\"lastModified\":\"2020-09-14T13:38:20.3196074Z\",\"creationTime\":\"2020-09-14T13:38:08.4185012Z\",\"state\":\"active\",\"stateTransitionTime\":\"2020-09-14T13:38:08.4755403Z\",\"priority\":0,\"usesTaskDependencies\":false,\"constraints\":{\r\n
         \   \"maxWallClockTime\":\"P10675199DT2H48M5.4775807S\",\"maxTaskRetryCount\":0\r\n
         \ },\"jobManagerTask\":{\r\n    \"id\":\"JobManager\",\"commandLine\":\"cmd
         /c set AZ_BATCH_TASK_ID\",\"environmentSettings\":[\r\n      {\r\n        \"name\":\"CLI_TEST_VAR\",\"value\":\"CLI_TEST_VAR_VALUE\"\r\n
@@ -602,7 +667,7 @@ interactions:
         \   },\"userIdentity\":{\r\n      \"autoUser\":{\r\n        \"scope\":\"pool\",\"elevationLevel\":\"nonadmin\"\r\n
         \     }\r\n    },\"runExclusive\":true,\"allowLowPriorityNode\":true,\"killJobOnCompletion\":true\r\n
         \ },\"poolInfo\":{\r\n    \"poolId\":\"xplatJobForTaskTests\"\r\n  },\"executionInfo\":{\r\n
-        \   \"startTime\":\"2020-04-03T17:34:42.7758114Z\",\"poolId\":\"xplatJobForTaskTests\"\r\n
+        \   \"startTime\":\"2020-09-14T13:38:08.4755403Z\",\"poolId\":\"xplatJobForTaskTests\"\r\n
         \ },\"onAllTasksComplete\":\"terminatejob\",\"onTaskFailure\":\"noaction\"\r\n}"
     headers:
       content-type:
@@ -610,13 +675,13 @@ interactions:
       dataserviceversion:
       - '3.0'
       date:
-      - Fri, 03 Apr 2020 17:34:51 GMT
+      - Mon, 14 Sep 2020 13:38:22 GMT
       etag:
-      - '0x8D7D7F54FA00877'
+      - '0x8D858B371B7F2AA'
       last-modified:
-      - Fri, 03 Apr 2020 17:34:49 GMT
+      - Mon, 14 Sep 2020 13:38:20 GMT
       request-id:
-      - 138fe0f0-439c-4182-a9ed-95adda71ea57
+      - 00737ebc-afe7-4c7d-a1ad-f26ac139913a
       server:
       - Microsoft-HTTPAPI/2.0
       strict-transport-security:
