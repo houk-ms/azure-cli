@@ -427,7 +427,7 @@ class AzCliCommandParser(CLICommandParser):
                                 go_on = False
                         if go_on:
                             from azure.cli.core.extension.operations import add_extension
-                            add_extension(cli_ctx=cli_ctx, extension_name=ext_name)
+                            add_extension(cli_ctx=cli_ctx, extension_name=ext_name, upgrade=True)
                             if run_after_extension_installed:
                                 import subprocess
                                 import platform
@@ -443,8 +443,8 @@ class AzCliCommandParser(CLICommandParser):
                                     telemetry.set_user_fault(error_msg)
                                 self.exit(2)
                         else:
-                            error_msg = "The command requires the extension {ext_name}. " \
-                                "To install, run 'az extension add -n {ext_name}'.".format(ext_name=ext_name)
+                            error_msg = "The command requires the latest version of extension {ext_name}. " \
+                                "To install, run 'az extension add --upgrade -n {ext_name}'.".format(ext_name=ext_name)
                 if not error_msg:
                     # parser has no `command_source`, value is part of command itself
                     error_msg = "'{value}' is misspelled or not recognized by the system.".format(value=value)
