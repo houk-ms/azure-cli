@@ -397,7 +397,7 @@ class NetworkPublicIpPrefix(ScenarioTest):
 
         # Check with unsupported IP address version: IPv5
         with self.assertRaisesRegexp(SystemExit, '2'
-            self.cmd('network public-ip prefix create -g {rg} -n {prefix_name_ipv6} --length 127 --version IPv5')
+            self.cmd('networkblic-ip prefix create -g {rg} -n {prefix_name_ipv6} --length 127 --version IPv5')
 
 
 class NetworkMultiIdsShowScenarioTest(ScenarioTest):
