@@ -275,8 +275,6 @@ class BatchDataPlaneScenarioTests(BatchScenarioMixin, ScenarioTest):
 
         # TODO: test task commands
 
-    @ResourceGroupPreparer()
-    @BatchAccountPreparer(location='canadaeast')
     def test_batch_pools_and_nodes(
             self,
             resource_group=static_rg,
