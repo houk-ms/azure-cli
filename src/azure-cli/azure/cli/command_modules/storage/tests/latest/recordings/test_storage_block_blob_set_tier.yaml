@@ -15,8 +15,8 @@ interactions:
       ParameterSetName:
       - -n -g --query -o
       User-Agent:
-      - python/3.7.7 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-storage/11.1.0
-        Azure-SDK-For-Python AZURECLI/2.10.1
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-storage/11.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: POST
@@ -32,7 +32,7 @@ interactions:
       content-type:
       - application/json
       date:
-      - Wed, 19 Aug 2020 06:25:04 GMT
+      - Mon, 14 Sep 2020 08:45:32 GMT
       expires:
       - '-1'
       pragma:
@@ -48,7 +48,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-resource-requests:
-      - '11995'
+      - '11999'
     status:
       code: 200
       message: OK
@@ -60,9 +60,9 @@ interactions:
       Content-Length:
       - '0'
       User-Agent:
-      - Azure-Storage/2.0.0-2.0.1 (Python CPython 3.7.7; Windows 10) AZURECLI/2.10.1
+      - Azure-Storage/2.0.0-2.0.1 (Python CPython 3.8.2; Windows 10) AZURECLI/2.11.1
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:06 GMT
+      - Mon, 14 Sep 2020 08:45:32 GMT
       x-ms-version:
       - '2018-11-09'
     method: PUT
@@ -74,11 +74,11 @@ interactions:
       content-length:
       - '0'
       date:
-      - Wed, 19 Aug 2020 06:25:06 GMT
+      - Mon, 14 Sep 2020 08:45:34 GMT
       etag:
-      - '"0x8D844089DE74F6C"'
+      - '"0x8D8588A8C2989E0"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:07 GMT
+      - Mon, 14 Sep 2020 08:45:35 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-version:
@@ -94,11 +94,11 @@ interactions:
       Content-Length:
       - '16384'
       User-Agent:
-      - Azure-Storage/2.0.0-2.0.1 (Python CPython 3.7.7; Windows 10) AZURECLI/2.10.1
+      - Azure-Storage/2.0.0-2.0.1 (Python CPython 3.8.2; Windows 10) AZURECLI/2.11.1
       x-ms-blob-type:
       - BlockBlob
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:07 GMT
+      - Mon, 14 Sep 2020 08:45:35 GMT
       x-ms-version:
       - '2018-11-09'
     method: PUT
@@ -112,11 +112,11 @@ interactions:
       content-md5:
       - zjOP5omXeKrPwoQU8tlJiw==
       date:
-      - Wed, 19 Aug 2020 06:25:08 GMT
+      - Mon, 14 Sep 2020 08:45:36 GMT
       etag:
-      - '"0x8D844089EDA172B"'
+      - '"0x8D8588A8D0BD018"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:08 GMT
+      - Mon, 14 Sep 2020 08:45:36 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-request-server-encrypted:
@@ -135,14 +135,63 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.22.0
+      X-UserId:
+      - 9df91b0a9a0c41217cfd61cda884c90b75c70bac33d18437354b0bfd6e1b06a2
+    method: GET
+    uri: https://app.aladdin.microsoft.com/api/v1.0/suggestions?query=%7B%22command%22%3A+%22storage+blob+set-tier%22%2C+%22parameters%22%3A+%22--account-key%2C--account-name%2C--container-name%2C--name%2C--rehydrate-priority%2C--tier%22%7D&clientType=AzureCli&context=%7B%22versionNumber%22%3A+%222.11.1%22%2C+%22errorType%22%3A+%22InvalidParameterValue%22%7D
+  response:
+    body:
+      string: "[{\"command\":\"storage blob set-tier\",\"parameters\":\"--account-key,--account-name,--container-name,--name,--tier\",\"placeholders\":\"00000000\u2660MyAccount\u2660MyContainer\u2660MyBlob\u2660P10\",\"score\":20.0},{\"command\":\"storage
+        blob set-tier\",\"parameters\":\"--account-name,--container-name,--name,--tier\",\"placeholders\":\"MyAccount\u2660MyContainer\u2660MyBlob\u2660P10\",\"score\":2.0}]"
+    headers:
+      api-supported-versions:
+      - '1.0'
+      content-length:
+      - '357'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 14 Sep 2020 08:45:36 GMT
+      server:
+      - Microsoft-IIS/10.0
+      set-cookie:
+      - ARRAffinity=4ce4c33ab28bbb6b04b324c1598b65752a514eaac8ea55fbbfed51c3c1295c29;Path=/;HttpOnly;Domain=app.aladdin.microsoft.com
+      sml-correlationid:
+      - efc93210-4a9f-40f0-b014-148a8aaad6a9
+      strict-transport-security:
+      - max-age=2592000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
       Content-Length:
       - '0'
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-access-tier:
       - Archive
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:09 GMT
+      - Mon, 14 Sep 2020 08:45:37 GMT
       x-ms-rehydrate-priority:
       - Standard
       x-ms-version:
@@ -156,7 +205,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Wed, 19 Aug 2020 06:25:10 GMT
+      - Mon, 14 Sep 2020 08:45:37 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-version:
@@ -174,9 +223,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:11 GMT
+      - Mon, 14 Sep 2020 08:45:38 GMT
       x-ms-version:
       - '2019-12-12'
     method: HEAD
@@ -194,21 +243,21 @@ interactions:
       content-type:
       - application/octet-stream
       date:
-      - Wed, 19 Aug 2020 06:25:11 GMT
+      - Mon, 14 Sep 2020 08:45:39 GMT
       etag:
-      - '"0x8D844089EDA172B"'
+      - '"0x8D8588A8D0BD018"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:08 GMT
+      - Mon, 14 Sep 2020 08:45:36 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-access-tier:
       - Archive
       x-ms-access-tier-change-time:
-      - Wed, 19 Aug 2020 06:25:10 GMT
+      - Mon, 14 Sep 2020 08:45:38 GMT
       x-ms-blob-type:
       - BlockBlob
       x-ms-creation-time:
-      - Wed, 19 Aug 2020 06:25:08 GMT
+      - Mon, 14 Sep 2020 08:45:36 GMT
       x-ms-lease-state:
       - available
       x-ms-lease-status:
@@ -232,11 +281,11 @@ interactions:
       Content-Length:
       - '0'
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-access-tier:
       - Cool
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:12 GMT
+      - Mon, 14 Sep 2020 08:45:39 GMT
       x-ms-rehydrate-priority:
       - High
       x-ms-version:
@@ -250,7 +299,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Wed, 19 Aug 2020 06:25:13 GMT
+      - Mon, 14 Sep 2020 08:45:40 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-version:
@@ -268,9 +317,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:13 GMT
+      - Mon, 14 Sep 2020 08:45:40 GMT
       x-ms-version:
       - '2019-12-12'
     method: HEAD
@@ -288,23 +337,23 @@ interactions:
       content-type:
       - application/octet-stream
       date:
-      - Wed, 19 Aug 2020 06:25:14 GMT
+      - Mon, 14 Sep 2020 08:45:41 GMT
       etag:
-      - '"0x8D844089EDA172B"'
+      - '"0x8D8588A8D0BD018"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:08 GMT
+      - Mon, 14 Sep 2020 08:45:36 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-access-tier:
       - Archive
       x-ms-access-tier-change-time:
-      - Wed, 19 Aug 2020 06:25:13 GMT
+      - Mon, 14 Sep 2020 08:45:40 GMT
       x-ms-archive-status:
       - rehydrate-pending-to-cool
       x-ms-blob-type:
       - BlockBlob
       x-ms-creation-time:
-      - Wed, 19 Aug 2020 06:25:08 GMT
+      - Mon, 14 Sep 2020 08:45:36 GMT
       x-ms-lease-state:
       - available
       x-ms-lease-status:
@@ -326,11 +375,11 @@ interactions:
       Content-Length:
       - '16384'
       User-Agent:
-      - Azure-Storage/2.0.0-2.0.1 (Python CPython 3.7.7; Windows 10) AZURECLI/2.10.1
+      - Azure-Storage/2.0.0-2.0.1 (Python CPython 3.8.2; Windows 10) AZURECLI/2.11.1
       x-ms-blob-type:
       - BlockBlob
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:15 GMT
+      - Mon, 14 Sep 2020 08:45:41 GMT
       x-ms-version:
       - '2018-11-09'
     method: PUT
@@ -344,11 +393,11 @@ interactions:
       content-md5:
       - zjOP5omXeKrPwoQU8tlJiw==
       date:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:42 GMT
       etag:
-      - '"0x8D84408A35FACF2"'
+      - '"0x8D8588A90CDA5E8"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:43 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-request-server-encrypted:
@@ -370,11 +419,11 @@ interactions:
       Content-Length:
       - '0'
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-access-tier:
       - Archive
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:43 GMT
       x-ms-rehydrate-priority:
       - Standard
       x-ms-version:
@@ -388,7 +437,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Wed, 19 Aug 2020 06:25:17 GMT
+      - Mon, 14 Sep 2020 08:45:44 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-version:
@@ -406,9 +455,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:18 GMT
+      - Mon, 14 Sep 2020 08:45:44 GMT
       x-ms-version:
       - '2019-12-12'
     method: HEAD
@@ -426,21 +475,21 @@ interactions:
       content-type:
       - application/octet-stream
       date:
-      - Wed, 19 Aug 2020 06:25:18 GMT
+      - Mon, 14 Sep 2020 08:45:45 GMT
       etag:
-      - '"0x8D84408A35FACF2"'
+      - '"0x8D8588A90CDA5E8"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:43 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-access-tier:
       - Archive
       x-ms-access-tier-change-time:
-      - Wed, 19 Aug 2020 06:25:17 GMT
+      - Mon, 14 Sep 2020 08:45:44 GMT
       x-ms-blob-type:
       - BlockBlob
       x-ms-creation-time:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:43 GMT
       x-ms-lease-state:
       - available
       x-ms-lease-status:
@@ -464,11 +513,11 @@ interactions:
       Content-Length:
       - '0'
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-access-tier:
       - Hot
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:19 GMT
+      - Mon, 14 Sep 2020 08:45:45 GMT
       x-ms-rehydrate-priority:
       - Standard
       x-ms-version:
@@ -482,7 +531,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Wed, 19 Aug 2020 06:25:19 GMT
+      - Mon, 14 Sep 2020 08:45:46 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-version:
@@ -500,9 +549,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - azsdk-python-storage-blob/12.4.0 Python/3.7.7 (Windows-10-10.0.19041-SP0)
+      - azsdk-python-storage-blob/12.4.0 Python/3.8.2 (Windows-10-10.0.18362-SP0)
       x-ms-date:
-      - Wed, 19 Aug 2020 06:25:20 GMT
+      - Mon, 14 Sep 2020 08:45:46 GMT
       x-ms-version:
       - '2019-12-12'
     method: HEAD
@@ -520,23 +569,23 @@ interactions:
       content-type:
       - application/octet-stream
       date:
-      - Wed, 19 Aug 2020 06:25:21 GMT
+      - Mon, 14 Sep 2020 08:45:46 GMT
       etag:
-      - '"0x8D84408A35FACF2"'
+      - '"0x8D8588A90CDA5E8"'
       last-modified:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:43 GMT
       server:
       - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
       x-ms-access-tier:
       - Archive
       x-ms-access-tier-change-time:
-      - Wed, 19 Aug 2020 06:25:20 GMT
+      - Mon, 14 Sep 2020 08:45:46 GMT
       x-ms-archive-status:
       - rehydrate-pending-to-hot
       x-ms-blob-type:
       - BlockBlob
       x-ms-creation-time:
-      - Wed, 19 Aug 2020 06:25:16 GMT
+      - Mon, 14 Sep 2020 08:45:43 GMT
       x-ms-lease-state:
       - available
       x-ms-lease-status:

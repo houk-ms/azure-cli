@@ -17,8 +17,8 @@ interactions:
       ParameterSetName:
       - -n -l
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: PUT
@@ -34,7 +34,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 07 Jul 2020 04:12:32 GMT
+      - Mon, 14 Sep 2020 08:29:44 GMT
       expires:
       - '-1'
       pragma:
@@ -44,7 +44,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1198'
     status:
       code: 201
       message: Created
@@ -60,8 +60,8 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: GET
@@ -77,7 +77,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 07 Jul 2020 04:12:33 GMT
+      - Mon, 14 Sep 2020 08:29:45 GMT
       expires:
       - '-1'
       pragma:
@@ -88,6 +88,56 @@ interactions:
       - Accept-Encoding
       x-content-type-options:
       - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.22.0
+      X-UserId:
+      - 9df91b0a9a0c41217cfd61cda884c90b75c70bac33d18437354b0bfd6e1b06a2
+    method: GET
+    uri: https://app.aladdin.microsoft.com/api/v1.0/suggestions?query=%7B%22command%22%3A+%22group+delete%22%2C+%22parameters%22%3A+%22%22%7D&clientType=AzureCli&context=%7B%22versionNumber%22%3A+%222.11.1%22%2C+%22errorType%22%3A+%22MissingRequiredParameters%22%7D
+  response:
+    body:
+      string: "[{\"command\":\"group delete\",\"parameters\":\"--resource-group\",\"placeholders\":\"MyResourceGroup\",\"score\":1523.0},{\"command\":\"group
+        delete\",\"parameters\":\"--resource-group,--yes\",\"placeholders\":\"MyResourceGroup\u2660\",\"score\":305.0},{\"command\":\"group
+        delete\",\"parameters\":\"--no-wait,--resource-group,--yes\",\"placeholders\":\"\u2660MyResourceGroup\u2660\",\"score\":313.0}]"
+    headers:
+      api-supported-versions:
+      - '1.0'
+      content-length:
+      - '351'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 14 Sep 2020 08:29:45 GMT
+      server:
+      - Microsoft-IIS/10.0
+      set-cookie:
+      - ARRAffinity=4ce4c33ab28bbb6b04b324c1598b65752a514eaac8ea55fbbfed51c3c1295c29;Path=/;HttpOnly;Domain=app.aladdin.microsoft.com
+      sml-correlationid:
+      - cca49d54-18f7-42c4-8ad4-ac82da71e399
+      strict-transport-security:
+      - max-age=2592000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - ASP.NET
     status:
       code: 200
       message: OK
@@ -107,8 +157,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: DELETE
@@ -122,7 +172,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:12:36 GMT
+      - Mon, 14 Sep 2020 08:29:46 GMT
       expires:
       - '-1'
       location:
@@ -152,8 +202,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1URVNUOjVGTE9DQUw6NUZDT05URVhUOjVGR1JPVVA6NUYxLUVBU1RBU0lBIiwiam9iTG9jYXRpb24iOiJlYXN0YXNpYSJ9?api-version=2020-06-01
   response:
@@ -165,7 +215,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:12:53 GMT
+      - Mon, 14 Sep 2020 08:30:02 GMT
       expires:
       - '-1'
       location:
@@ -193,8 +243,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1URVNUOjVGTE9DQUw6NUZDT05URVhUOjVGR1JPVVA6NUYxLUVBU1RBU0lBIiwiam9iTG9jYXRpb24iOiJlYXN0YXNpYSJ9?api-version=2020-06-01
   response:
@@ -206,7 +256,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:13:08 GMT
+      - Mon, 14 Sep 2020 08:30:17 GMT
       expires:
       - '-1'
       location:
@@ -234,8 +284,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1URVNUOjVGTE9DQUw6NUZDT05URVhUOjVGR1JPVVA6NUYxLUVBU1RBU0lBIiwiam9iTG9jYXRpb24iOiJlYXN0YXNpYSJ9?api-version=2020-06-01
   response:
@@ -247,7 +297,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:13:23 GMT
+      - Mon, 14 Sep 2020 08:30:32 GMT
       expires:
       - '-1'
       pragma:
@@ -277,8 +327,8 @@ interactions:
       ParameterSetName:
       - -n
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: PUT
@@ -294,7 +344,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 07 Jul 2020 04:13:27 GMT
+      - Mon, 14 Sep 2020 08:30:33 GMT
       expires:
       - '-1'
       pragma:
@@ -304,7 +354,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1198'
     status:
       code: 201
       message: Created
@@ -324,8 +374,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
       accept-language:
       - en-US
     method: DELETE
@@ -339,7 +389,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:13:30 GMT
+      - Mon, 14 Sep 2020 08:30:34 GMT
       expires:
       - '-1'
       location:
@@ -369,8 +419,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1URVNUOjVGTE9DQUw6NUZDT05URVhUOjVGR1JPVVA6NUYyLUVBU1RBU0lBIiwiam9iTG9jYXRpb24iOiJlYXN0YXNpYSJ9?api-version=2020-06-01
   response:
@@ -382,7 +432,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:13:47 GMT
+      - Mon, 14 Sep 2020 08:30:50 GMT
       expires:
       - '-1'
       location:
@@ -410,8 +460,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1URVNUOjVGTE9DQUw6NUZDT05URVhUOjVGR1JPVVA6NUYyLUVBU1RBU0lBIiwiam9iTG9jYXRpb24iOiJlYXN0YXNpYSJ9?api-version=2020-06-01
   response:
@@ -423,7 +473,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:14:02 GMT
+      - Mon, 14 Sep 2020 08:31:05 GMT
       expires:
       - '-1'
       location:
@@ -451,8 +501,8 @@ interactions:
       ParameterSetName:
       - -n -y
       User-Agent:
-      - python/3.8.2 (Windows-10-10.0.19041-SP0) msrest/0.6.9 msrest_azure/0.6.3 azure-mgmt-resource/10.1.0
-        Azure-SDK-For-Python AZURECLI/2.8.0
+      - python/3.8.2 (Windows-10-10.0.18362-SP0) msrest/0.6.18 msrest_azure/0.6.3
+        azure-mgmt-resource/10.2.0 Azure-SDK-For-Python AZURECLI/2.11.1
     method: GET
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1URVNUOjVGTE9DQUw6NUZDT05URVhUOjVGR1JPVVA6NUYyLUVBU1RBU0lBIiwiam9iTG9jYXRpb24iOiJlYXN0YXNpYSJ9?api-version=2020-06-01
   response:
@@ -464,7 +514,7 @@ interactions:
       content-length:
       - '0'
       date:
-      - Tue, 07 Jul 2020 04:14:17 GMT
+      - Mon, 14 Sep 2020 08:31:20 GMT
       expires:
       - '-1'
       pragma:
